@@ -98,52 +98,47 @@
             transform: translateY(0);
         }
         button {
-            background-color: #000000; /* Black background */
-            color: #ffffff; /* White text color */
-            padding: 10px 20px;
-            border: 2px solid palevioletred; /* Initially transparent border */
-            border-radius: 5px;
-            font-size: 16px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text color */
+    padding: 10px 20px;
+    border: 2px solid palevioletred; /* Initially transparent border */
+    border-radius: 5px;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
 
-        button:hover {
-            transform: scale(1.05); /* Increase size on hover */
-            border-color: #ffffff; /* White border color on hover */
-        }
+button:hover {
+    transform: scale(1.05); /* Increase size on hover */
+    border-color: #ffffff; /* White border color on hover */
+}
 
-        button:hover::after {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            border: 2px solid #4CAF50; /* Green border color on hover */
-            border-radius: 5px;
-            z-index: -1;
-        }
-
-        /* Media Queries */
-        @media (max-width: 768px) {
-            .milestone.left, .milestone.right {
-                left: auto;
-                right: auto;
-                width: auto;
-                padding: 10px;
-                margin: 10px;
+button:hover::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid #4CAF50; /* Green border color on hover */
+    border-radius: 5px;
+    z-index: -1;
+}
+ /* Responsive Styles */
+ @media (max-width: 600px) {
+            .milestone {
+                width: 90%;
+                left: 10px !important;
+                right: 10px !important;
+                margin: auto;
             }
 
-            .milestone.left::before, .milestone.right::before {
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-
-            .timeline {
-                left: 50%;
-                transform: translateX(-50%);
+            .milestone.left,
+            .milestone.right {
+                left: 10px;
+                right: 10px;
+                margin: auto;
             }
 
             .nav-links {
@@ -158,42 +153,38 @@
 
             .navbar-toggler {
                 display: block;
-                border: none;
-                background: none;
-                color: #fff;
-                font-size: 24px;
-            }
-
-            .navbar-toggler:focus {
-                outline: none;
+                cursor: pointer;
             }
 
             .navbar-collapse {
-                display: flex;
+                display: none;
                 flex-direction: column;
                 align-items: center;
+                background-color: #1a1a1a;
+                width: 100%;
+                padding: 10px;
+            }
+
+            .navbar-collapse.show {
+                display: flex;
             }
 
             .navbar-nav {
-                display: flex;
                 flex-direction: column;
-                align-items: center;
-                margin-top: 10px;
+                width: 100%;
             }
 
-            .navbar-nav .nav-link {
+            .nav-item {
                 margin: 5px 0;
             }
-        }
 
-        @media (min-width: 769px) {
-            .navbar-toggler {
-                display: none;
+            .nav-link {
+                color: #ffffff;
+                text-align: center;
             }
 
-            .navbar-collapse {
-                display: flex !important;
-                justify-content: flex-end;
+            .image-container img {
+                width: 100%;
             }
         }
     </style>
@@ -201,14 +192,14 @@
 <body>
     <div class="custom-cursor"></div>
     
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar">
         <div class="container">
             <h1 class="logo">CyberX</h1>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-                <i class="fas fa-bars"></i>
+            <button class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="color: white;"><i class="fas fa-bars"></i> </span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav nav-links">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#events">Events</a></li>
@@ -223,9 +214,14 @@
         <div class="container fade-up">
             <h2>Welcome to CyberX</h2>
             <p>Empowering the future of cybersecurity.</p>
+            
         </div>
     </section>
 
+  
+
+  
+    
     <section class="additional-section">
         <div class="container">
             <div class="row">
@@ -243,6 +239,9 @@
             </div>
         </div>
     </section>
+    
+    
+    
 
     <section id="milestones" class="timeline-section">
         <div class="timeline-container fade-up">
@@ -253,62 +252,137 @@
                 <div class="milestone right fade-right" style="top: 30%;"><span>SQL Injection</span></div>
                 <div class="milestone left fade-left" style="top: 50%;"><span style="margin-left: 50px;">Vulnerability Assessment</span></div>
                 <div class="milestone right fade-right" style="top: 70%;"><span>Cloud Security</span></div>
-                <div class="milestone left fade-left" style="top: 90%;"><span style="margin-left: 50px;">Network Security</span></div>
+                <div class="milestone left fade-left" style="top: 90%;"><span style="margin-left: 50px;">Application Security</span></div>
             </div>
         </div>
     </section>
-
-    <section id="contact" class="additional-section">
+    <section  class="section">
         <div class="container">
-            <h3>Contact Us</h3>
-            <form>
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" class="form-control">
+            <h2>Teams</h2>
+            <div class="event-cards">
+                <div class="event-card fade-left" style="transition: 1.3s ease;">
+                    <img src="https://thewarroom.ag/v2/images/blue-pill-hand.png" alt="">
+                    <h3 style="margin-left: 20%;">Bule Team</h3>
+                    
+                    
                 </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" class="form-control">
+                <div class="event-card fade-right" style="transition: 1.3s ease;">
+                    <img src="https://thewarroom.ag/v2/images/red-pill-hand.png" alt="">
+                    <h3 style="margin-left: 20%;">Red Team</h3>
+                    
+                    
                 </div>
-                <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" class="form-control"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+            </div>
         </div>
     </section>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <section id="events" class="events section">
+        <div class="container">
+            <h2>Upcoming Events</h2>
+            <div class="event-cards">
+                <div class="event-card fade-up">
+                    <h3>Workshop on Cybersecurity Basics</h3>
+                    <p>Date: July X, 2024</p>
+                    <Button>Register Now</Button>
+                </div>
+                <div class="event-card fade-up">
+                    <h3>Hacking Challenge 2024</h3>
+                    <p>Date: August X, 2024</p>
+                    <button>Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="about section" style="background-image: url('https://vatins.com/assets/images/background/service-bg.jpg'); background-size:80% auto; background-position: center;">
+        <div class="container">
+            <h2>Additional Informaftion</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae sem ante. </p>
+        </div>
+    </section>
+    <footer class="text-center mt-5" style="background-color: #0f0f0f;">
+        <div class="container">
+            <p>&copy; 2024 CyberX</p>
+            <div>
+                <a href="#" class="mx-2" style="color: goldenrod;"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="mx-2" style="color: goldenrod;"><i class="fab fa-twitter"></i></a>
+                
+                <a href="#" class="mx-2" style="color: goldenrod;"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>Email: example@example.com | Phone: (123) 456-7890</p>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
     <script>
-        $(document).ready(function() {
-            // Cursor animation
-            const cursor = $('.custom-cursor');
-            $(document).on('mousemove', function(e) {
-                cursor.css({
-                    top: e.clientY,
-                    left: e.clientX
+        document.addEventListener('DOMContentLoaded', function() {
+            var tracker = document.querySelector('.tracker');
+            var timeline = document.querySelector('.timeline');
+            var timelineSection = document.querySelector('.timeline-section');
+            var fadeElements = document.querySelectorAll('.fade-up');
+
+            function moveTracker() {
+                var timelineRect = timeline.getBoundingClientRect();
+                var sectionRect = timelineSection.getBoundingClientRect();
+
+                // Calculate the scroll progress within the timeline section
+                var sectionTop = sectionRect.top + window.scrollY; // Top position of the section relative to the document
+                var sectionBottom = sectionTop + sectionRect.height; // Bottom position of the section relative to the document
+                var scrollPosition = window.scrollY + window.innerHeight; // Current scroll position
+
+                // Ensure scroll position is within the timeline section range
+                if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+                    var scrollProgress = (scrollPosition - sectionTop) / (sectionBottom - sectionTop);
+                    var trackerPosition = scrollProgress * timelineRect.height;
+
+                    // Add an offset to move the tracker up
+                    var offset = -30; // Adjust this value as needed
+                    tracker.style.top = (trackerPosition + offset) + 'px';
+
+                    // Change timeline color as tracker moves down
+                    var colorIntensity = -30 + Math.min(255, Math.floor(scrollProgress * 255));
+                    timeline.style.backgroundColor = `rgb(${colorIntensity}, ${colorIntensity}, ${colorIntensity})`;
+                }
+            }
+
+            function checkFadeElements() {
+                fadeElements.forEach(function(element) {
+                    var rect = element.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight - 100) {
+                        element.classList.add('visible');
+                    }
                 });
+            }
+
+            // Check the position of the tracker on scroll
+            window.addEventListener('scroll', function() {
+                moveTracker();
+                checkFadeElements();
             });
 
-            // Scroll animation for elements with 'fade-up' class
-            $('.fade-up').waypoint(function() {
-                $(this.element).addClass('visible');
-            }, { offset: '80%' });
-
-            // Scroll animation for elements with 'fade-left' class
-            $('.fade-left').waypoint(function() {
-                $(this.element).addClass('visible');
-            }, { offset: '80%' });
-
-            // Scroll animation for elements with 'fade-right' class
-            $('.fade-right').waypoint(function() {
-                $(this.element).addClass('visible');
-            }, { offset: '80%' });
+            // Initial call to position tracker and check fade elements on load
+            moveTracker();
+            checkFadeElements();
         });
+        $(document).ready(function() {
+    $(window).scroll(function() {
+        $('.fade-left, .fade-right').each(function() {
+            var elementPos = $(this).offset().top;
+            var topOfWindow = $(window).scrollTop() + $(window).height();
+            if (elementPos < topOfWindow) {
+                $(this).addClass('fade-in');
+            }
+        });
+    });
+});
+ // Navbar toggler script
+ const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+
+        navbarToggler.addEventListener('click', () => {
+            navbarCollapse.classList.toggle('show');
+        });
+
     </script>
 </body>
 </html>
