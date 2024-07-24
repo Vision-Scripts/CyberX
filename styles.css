@@ -331,4 +331,11 @@ body.light-bg .custom-cursor {
     border-radius: 5px;
     z-index: -1;
 }
+.myfont {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
 
